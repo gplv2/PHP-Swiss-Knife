@@ -1,5 +1,20 @@
 <?php
+/*********************************************************************
+  class.latin1utf8.php
+
+  Glenn Plas (glenn@byte-consult.be)
+
+  Copyright (c)  2011-2012 
+
+  Released under the GNU General Public License WITHOUT ANY WARRANTY.
+  See LICENSE.TXT for details.
+
+  vim: expandtab sw=3 ts=3 sts=3:
+ **********************************************************************/
+
+
 /*
+// Test :
 $trans = new Latin1UTF8();
 
 $mixed = "MIXED TEXT INPUT";
@@ -7,7 +22,7 @@ $mixed = "MIXED TEXT INPUT";
 print "Original: ".$mixed;
 print "Latin1:   ".$trans->mixed_to_latin1($mixed);
 print "UTF-8:    ".$trans->mixed_to_utf8($mixed);
-*/
+ */
 
 class Latin1UTF8 {
 
