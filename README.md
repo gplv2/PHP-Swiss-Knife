@@ -7,12 +7,16 @@ Added components
 
 #### Static Tools class (class.tools.php)
  - stable, not tested a lot
+
 #### Utf8 helper (class.latin1utf8.php)
  - stable, in production for long time
+
 #### Memcached class (class.memcached.php)
  - stable, in production for long time.  Tested.
+
 #### Timing class (class.timing.php)
  - experimental, untested
+
 #### Mysql DB class (class.db.php)
  - stable but not tested a lot
 
