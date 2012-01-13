@@ -1,30 +1,39 @@
 <?php
 
+/* Just extend the class, add our method */
 class MySQLiteDatabase extends SQLiteDatabase {
 
+   /* A neat way to see which tables are inside a valid sqlite file */
    public function getTables()  {
+      $tables=array();
       $q = $this->query(sprintf("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"));
-      var_Dump($q);
-      if (empty($error)){
-         $result = $q->fetchAll();
-         // var_Dump($result); exit;
-         foreach($result as $tot_table) {
-            $table = $tot_table['name'];
-            // logtrace(2,sprintf("%s",$table));
-            $tables[]=$table;
-         }
-         return($tables);
+      $result = $q->fetchAll();
+      foreach($result as $tot_table) {
+         $tables[]=$tot_table['name'];
       }
+      return($tables);
    }
 }
 
+/* a sqlite file */
 $database="BLAHBLAH.sqlite";
-$db = new MySQLiteDatabase($database, 0666, $err);
-if ($err) {
-   trigger_error($err);
-   return($err);
 
+if (file_exists($database)) {
+   $db = new MySQLiteDatabase($database, 0666, $err);
+   if ($err) {
+      trigger_error($err);
+   } else {
+      print_r($db->getTables());
+   }
 }
-print_r($db->getTables());
 
+
+/* this sqlite db had 2 tables:
+   Array
+   (
+   [0] => Account
+   [1] => Device
+   )
+
+ */
 ?>
