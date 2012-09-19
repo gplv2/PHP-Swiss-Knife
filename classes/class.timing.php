@@ -65,12 +65,16 @@ Class Timer {
    }
 
    public function show_interval ($name = 'default') {
-      echo sprintf("[%s]%s => %s\n",__METHOD__, $name, $this->timing_interval($name));
+      return sprintf("[%s]%s => %s\n",__METHOD__, $name, $this->timing_interval($name));
+   }
+
+   public function get_interval ($name = 'default') {
+         return($this->timing_interval($name));
    }
 
    public function show_all_timers ($name = 'default') {
       foreach($this->timings as $timer ) {
-         show_interval($timer['name']);
+         $this->show_interval($timer['name']);
       }
    }
 }
